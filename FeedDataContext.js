@@ -32,4 +32,74 @@ export const FeedDataProvider = ({ children }) => {
             console.error(`Failed to save ${key}:`, error);
         }
     };
-}
+
+    const addFeedData = (entry) => {
+        setFeedData((prevData) => {
+            const updatedData = [...prevData, entry];
+            saveToStorage("feedData", updatedData);
+            return updatedData;
+        });
+    };
+
+    const updateFeedData = (updatedEntry) => {
+        setFeedData((prev) => {
+            const updatedData = prev.map((entry) =>
+            entry.id === updatedEntry.id ? updatedEntry : entry
+            );
+            saveToStorage("feedData", updatedData);
+            return updatedData;
+        });
+    };
+
+    const deleteFeedData = (id) => {
+        setFeedData((prev) => {
+            const updatedData = prev.filter((entry) => entry.id !== id);
+            saveToStorage("feedData", updatedData);
+            return updatedData;
+        });
+    };
+
+    const addMilkStash = (entry) => {
+        setMilkStash((prev) => {
+            const updatedStash = [...prev, entry];
+            saveToStorage("milkStash", updatedStash);
+            return updatedStash;
+        });
+    };
+
+    const updateMilkStash = (entry) => {
+        setMilkStash((prev) => {
+            const updatedStash = prev.map((item) =>
+                item.id === entry.id ? entry : item
+            );
+            saveToStorage("milkStash", updatedStash);
+            return updatedStash;
+        });
+    };
+
+    const removeMilkStash = (id) => {
+        setMilkStash((prev) => {
+            const updatedStash = prev.filter((entry) => entry.id !== id);
+            saveToStorage("milkStash", updatedStash);
+            return updatedStash;
+        });
+    };
+
+    return (
+        <FeedDataContext.Provider
+            value={{
+                feedData,
+                milkStash,
+                addFeedData,
+                updateFeedData,
+                deleteFeedData,
+                addMilkStash,
+                removeMilkStash,
+            }}
+        >
+            {children}
+        </FeedDataContext.Provider>
+    );
+};
+
+export default FeedDataProvider
