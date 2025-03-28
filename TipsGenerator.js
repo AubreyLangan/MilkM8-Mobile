@@ -41,6 +41,33 @@ const styles = StyleSheet.create({
         backgroundColor: "#f9f9f9",
     },
     heading: {
-        
-    }
-})
+        fontSize: 22,
+        fontWeight: "bold",
+        marginBottom: 10,
+    },
+    tip: {
+        fontSize: 16,
+        textAlign: "center",
+        marginVertical: 15,
+        paddingHorizontal: 10,
+    },
+    button: {
+        backgroundColor: "#6c63ff",
+        paddingVertical: 12,
+        paddingHorizontal: 20,
+        borderRadius: 8,
+        marginVertical: 5,
+        alignItems: "center",
+        width: 200,
+    },
+    resourceButton: {
+        backgroundColor: "#0288d1",
+    },
+    buttonText: {
+        color: "#fff",
+        fontSize: 16,
+        fontWeight: "bold",
+    },
+});
+
+export default TipsGenerator;
