@@ -23,6 +23,20 @@ const Navbar = ({ user, onLogin, onLogout }) => {
     };
 
     return (
-        
+        <View style={[styles.navbar, isDarkMode && styles.darkMode]}>
+            <TouchableOpacity onPress={() => setIsMenuOpen(!isMenuOpen)}>
+                <Ionicons name={isMenuOpen ? "close" : "menu"} size={28} color="white" />
+            </TouchableOpacity>
+
+            <TouchableOpacity onPress={() => navigation.navigate("Home")}>
+                <Image source={require("../assets/logoidea2.PNG")} style={styles.logo} />
+            </TouchableOpacity>
+
+            <TouchableOpacity onPress={toggleTheme}>
+                <Ionicons name={isDarkMode ? "sunny" : "moon"} size={28} color="white" />
+            </TouchableOpacity>
+
+            
+        </View>
     )
 }
