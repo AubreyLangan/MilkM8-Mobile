@@ -44,5 +44,22 @@ const DropdownMenu = () => {
 };
 
 const styles = StyleSheet.create({
-    
-})
+    dropdown: {
+        padding: 10,
+    },
+    dropdownTitle: {
+        fontSize: 18,
+        color: "white",
+    },
+    dropdownMenu: {
+        backgroundColor: "#555",
+        padding: 10,
+    },
+    menuItem: {
+        color: "white",
+        fontSize: 16,
+        padding: 5,
+    },
+});
+
+export default DropdownMenu;
