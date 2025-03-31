@@ -36,7 +36,46 @@ const Navbar = ({ user, onLogin, onLogout }) => {
                 <Ionicons name={isDarkMode ? "sunny" : "moon"} size={28} color="white" />
             </TouchableOpacity>
 
-            
+            {isMenuOpen && (
+                <View style={styles.menu}>
+                    <TouchableOpacity onPress={() => navigation.navigate("Home")}>
+                        <Text style={styles.menuItem}>Home</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => navigation.navigate("About")}>
+                        <Text style={styles.menuItem}>About</Text>
+                    </TouchableOpacity>
+
+                    {user ? (
+                        <>
+                            <TouchableOpacity onPress={() => navigation.navigate("Profile")}>
+                                <Text style={styles.menuItem}>Profile</Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={handleLogout}>
+                                <Text style={styles.menuItem}>Log Out</Text>
+                            </TouchableOpacity>
+                        </>
+                    ) : (
+                        <>
+                            <TouchableOpacity onPress={() => navigation.navigate("SignIn")}>
+                                <Text style={styles.menuItem}>Sign In</Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={() => navigation.navigate("SignUp")}>
+                                <Text style={styles.menuItem}>Sign Up</Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={handleGoogleSignIn}>
+                                <Text style={styles.menuItem}>Sign in with Google</Text>
+                            </TouchableOpacity>
+                        </>
+                    )}
+                    <TouchableOpacity onPress={() => navigation.navigate("LogEntry")}>
+                        <Text style={styles.menuItem}>Log Entry</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => navigation.navigate("Settings")}>
+                        <Text style={styles.menuItem}>Settings</Text>
+                    </TouchableOpacity>
+                </View>
+            )}
         </View>
-    )
-}
+    );
+};
+
