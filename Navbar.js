@@ -79,3 +79,35 @@ const Navbar = ({ user, onLogin, onLogout }) => {
     );
 };
 
+const styles = StyleSheet.create({
+    navbar: {
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "space-between",
+        padding: 15,
+        backgroundColor: "#333",
+    },
+    darkMode: {
+        backgroundColor: "111",
+    },
+    logo: {
+        width: 50,
+        height: 50,
+        resizeMode: "contain",
+    },
+    menu: {
+        position: "absolute",
+        top: 60,
+        left: 0,
+        width: "100%",
+        backgroundColor: "#444",
+        padding: 10,
+    },
+    menuItem: {
+        color: "white",
+        fontSize: 18,
+        padding: 10,
+    },
+});
+
+export default Navbar;
