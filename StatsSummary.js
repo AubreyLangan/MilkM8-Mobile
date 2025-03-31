@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, PermissionsAndroid } from "react-native";
 
 const StatsSummary= ({ entries }) => {
     const ozEntries = entries.filter((entry) => entry.unit === "oz");
@@ -28,3 +28,29 @@ const StatsSummary= ({ entries }) => {
     );
 };
 
+const styles = StyleSheet.create({
+    container: {
+        padding: 20,
+        backgroundColor: "#f8f8f8",
+        borderRadius: 10,
+        margin: 10,
+    },
+    header: {
+        fontSize: 22,
+        fontWeight: "bold",
+        marginBottom: 10,
+    },
+    section: {
+        marginBottom: 10,
+    },
+    subHeader: {
+        fontSize: 18,
+        fontWeight: "bold",
+    },
+    text: {
+        fontSize: 16,
+        color: "#555",
+    },
+});
+
+export default StatsSummary;
