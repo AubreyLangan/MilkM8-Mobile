@@ -20,9 +20,29 @@ const DropdownMenu = () => {
                 <TouchableOpacity onPress={() => navigation.navigate("ProgressTrends")}>
                     <Text style={styles.menuItem}>Progress & Trends</Text>
                 </TouchableOpacity>
-                
+                <TouchableOpacity onPress={() => navigation.navigate("FeedingPatternGenerator")}>
+                    <Text style={styles.menuItem}>Feeding Patterns</Text>
+                </TouchableOpacity>
               </View>
             )}
+
+            <TouchableOpacity onPress={() => setTrackersDropdown(!trackersDropdown)} style={styles.dropdown}>
+                <Text style={styles.dropdownTitle}>Trackers ▾</Text>
+            </TouchableOpacity>
+            {trackersDropdown && (
+                <View style={styles.dropdownMenu}>
+                    <TouchableOpacity onPress={() => navigation.navigate("FeedTracker")}>
+                        <Text style={styles.menuItem}>Feed Tracker</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => navigation.navigate("MilestoneTracker")}>
+                        <Text style={styles.menuItem}>Milestone Tracker</Text>
+                    </TouchableOpacity>
+                </View>
+            )}
         </View>
-    )
-}
+    );
+};
+
+const styles = StyleSheet.create({
+    
+})
