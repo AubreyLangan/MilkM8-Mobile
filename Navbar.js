@@ -85,11 +85,29 @@ const Navbar = ({ user, onLogin, onLogout }) => {
                     <TouchableOpacity onPress={() => navigation.navigate("LogEntry")}>
                         <Text style={styles.menuItem}>Log Entry</Text>
                     </TouchableOpacity>
+                    <TouchableOpacity onPress={() => navigation.navigate("Calculators")}>
+                        <Text style={styles.menuItem}>Calculators</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => navigation.navigate("PartnerManagement")}>
+                        <Text style={styles.menuItem}>Partner Management</Text>
+                    </TouchableOpacity>
                     <TouchableOpacity onPress={() => navigation.navigate("Resources")}>
                         <Text style={styles.menuItem}>Resources</Text>
                     </TouchableOpacity>
+                    <TouchableOpacity onPress={() => navigation.navigate("Reminders")}>
+                        <Text style={styles.menuItem}>Reminders</Text>
+                    </TouchableOpacity>
                     <TouchableOpacity onPress={() => navigation.navigate("SettingsPage")}>
                         <Text style={styles.menuItem}>Settings</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => navigation.navigate("ContactPage")}>
+                        <Text style={styles.menuItem}>Contact Page</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => navigation.navigate("HelpCenter")}>
+                        <Text style={styles.menuItem}>Help Center</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => navigation.navigate("FeedbackForm")}>
+                        <Text style={styles.menuItem}>Feedback Form</Text>
                     </TouchableOpacity>
                 </View>
             )}
@@ -108,10 +126,20 @@ const styles = StyleSheet.create({
     darkMode: {
         backgroundColor: "111",
     },
+    menuToggle: {
+        padding: 10,
+    },
+    icon: {
+        fontSize: 24,
+        color: "white",
+    },
     logo: {
         width: 50,
         height: 50,
         resizeMode: "contain",
+    },
+    themeToggle: {
+        padding: 10,
     },
     menu: {
         position: "absolute",
