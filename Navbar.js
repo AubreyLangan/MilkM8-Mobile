@@ -4,6 +4,8 @@ import { useNavigation } from "@react-navigation/native";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { getAuth, signInWithPopup, GoogleAuthProvider, signOut} from "firebase/auth";
 import { useTheme } from "../utils/ThemeContext";
+import logoidea from "../assets/logoidea2.PNG";
+import DropdownMenu from "./DropdownMenu";
 
 const Navbar = ({ user, onLogin, onLogout }) => {
     const { isDarkMode, toggleTheme } = useTheme();
@@ -22,18 +24,27 @@ const Navbar = ({ user, onLogin, onLogout }) => {
         }
     };
 
+    const handleLogout = async () => {
+        try {
+            await signOut(auth);
+            onLogout();
+        } catch (error) {
+            console.error("Logout Error:", error);
+        }
+    };
+
     return (
         <View style={[styles.navbar, isDarkMode && styles.darkMode]}>
             <TouchableOpacity onPress={() => setIsMenuOpen(!isMenuOpen)}>
-                <Ionicons name={isMenuOpen ? "close" : "menu"} size={28} color="white" />
+                <Text style={styles.icon}>{isMenuOpen ? "✖" : "☰"}</Text>
             </TouchableOpacity>
 
             <TouchableOpacity onPress={() => navigation.navigate("Home")}>
-                <Image source={require("../assets/logoidea2.PNG")} style={styles.logo} />
+                <Image source={logoidea} style={styles.logo} />
             </TouchableOpacity>
 
             <TouchableOpacity onPress={toggleTheme}>
-                <Ionicons name={isDarkMode ? "sunny" : "moon"} size={28} color="white" />
+                <Text style={styles.icon}>{isDarkMode ? "☀" : "🌙"}</Text>
             </TouchableOpacity>
 
             {isMenuOpen && (
@@ -67,10 +78,17 @@ const Navbar = ({ user, onLogin, onLogout }) => {
                             </TouchableOpacity>
                         </>
                     )}
+
+                    <DropdownMenu />
+
+
                     <TouchableOpacity onPress={() => navigation.navigate("LogEntry")}>
                         <Text style={styles.menuItem}>Log Entry</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={() => navigation.navigate("Settings")}>
+                    <TouchableOpacity onPress={() => navigation.navigate("Resources")}>
+                        <Text style={styles.menuItem}>Resources</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => navigation.navigate("SettingsPage")}>
                         <Text style={styles.menuItem}>Settings</Text>
                     </TouchableOpacity>
                 </View>
