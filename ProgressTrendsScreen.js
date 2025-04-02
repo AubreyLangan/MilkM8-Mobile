@@ -74,12 +74,49 @@ const ProgressTrendsScreen = () => {
                             width={350}
                             height={250}
                             chartConfig={{
-                                backgroundColor: "#fff"
-                                
+                                backgroundColor: "#fff",
+                                backgroundGradientFrom: "#fff",
+                                backgroundGradientTo: "#fff",
+                                color: (opacity = 1) => `rgba(2, 136, 209, ${opacity})`,
+                                strokewidth: 2,
                             }}
+                        />
                     </View>
                 </>
             )}
         </ScrollView>
-    )
-}
+    );
+};
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        padding: 20,
+        backgroundColor: "#fff",
+    },
+    title: {
+        fontSize: 24,
+        fontWeight: "bold",
+        textAlign: "center",
+        marginBottom: 20,
+    },
+    chartContainer: {
+        marginBottom: 30,
+    },
+    chartTitle: {
+        fontSize: 18,
+        fontWeight: "bold",
+        textAlign: "center",
+        marginBottom: 10,
+    },
+    chart: {
+        height: 200,
+    },
+    noData: {
+        fontSize: 16,
+        textAlign: "center",
+        color: "gray",
+    },
+});
+
+export default ProgressTrendsScreen;
