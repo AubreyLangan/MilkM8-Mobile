@@ -96,3 +96,62 @@ const LogEntryScreen = ({ addEntry, entries = [], deleteEntry, updateEntry }) =>
     );
 };
 
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        padding: 20,
+        backgroundColor: "#fff",
+    },
+    darkMode: {
+        backgroundColor: "#121212",
+    },
+    title: {
+        fontSize: 24,
+        fontWeight: "bold",
+        textAlign: "center",
+        marginBottom: 10,
+    },
+    subtitle: {
+        fontSize: 18,
+        fontWeight: "bold",
+        marginTop: 20,
+    },
+    button: {
+        backgroundColor: "#6c63ff",
+        padding: 10,
+        borderRadius: 5,
+        alignItems: "center",
+        marginVertical: 5,
+    },
+    buttonText: {
+        color: "#fff",
+        fontSize: 16,
+        fontWeight: "bold",
+    },
+    entryItem: {
+        backgroundColor: "#f9f9f9",
+        padding: 10,
+        borderRadius: 5,
+        marginVertical: 5,
+    },
+    entryText: {
+        fontSize: 16,
+    },
+    entryButtons: {
+        flexDirection: "row",
+        justifyContent: "space-between",
+        marginTop: 5,
+    },
+    deleteButton: {
+        backgroundColor: "#ff4d4d",
+        padding: 5,
+        borderRadius: 5,
+    },
+    editButton: {
+        backgroundColor: "#0288d1",
+        padding: 5,
+        borderRadius: 5,
+    },
+});
+
+export default LogEntryScreen;
