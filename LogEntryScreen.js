@@ -23,5 +23,34 @@ const LogEntryScreen = ({ addEntry, entries = [], deleteEntry, updateEntry }) =>
         setEditingEntry(null);
     };
 
-    
+    const handleSubmit = async (entry) => {
+        setLoading(true);
+        try {
+            await addEntry(entry);
+        } catch (error) {
+            console.error("Failed to add entry: error");
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    const handleTimerSubmit = async ({ time }) => {
+        const minutes = Math.floor(time / 60);
+        const seconds = time % 60;
+
+        const entry = {
+            id: Date.now(),
+            quantity: 0,
+            time: `${minutes}m ${seconds}`,
+            unit: "Oz",
+            date: new Date().toLocaleDateString(),
+            notes: "Added via Timer",
+        };
+
+        await handleSubmit(entry);
+    };
+
+    return (
+        
+    )
 }
