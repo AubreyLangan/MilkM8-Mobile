@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert } from "react-native";
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert, PermissionsAndroid } from "react-native";
 
 const LogEntryForm = ({ onSubmit }) => {
     const [quantity, setQuantity] = useState("");
@@ -66,3 +66,46 @@ const LogEntryForm = ({ onSubmit }) => {
     );
 };
 
+const styles = StyleSheet.create({
+    container: {
+       padding: 20,
+    },
+    label: {
+        fontSize: 16,
+        fontWeight: "bold",
+        marginBottom: 5,
+    },
+    input: {
+        borderWidth: 1,
+        borderColor: "#ccc",
+        borderRadius: 5,
+        padding: 10,
+        fontSize: 16,
+        marginBottom: 10,
+    },
+    switchButton: {
+        backgroundColor: "#6c63ff",
+        padding: 10,
+        borderRadius: 5,
+        alignItems: "center",
+        marginBottom: 10,
+    },
+    submitButton: {
+        backgroundColor: "#0288d1",
+        padding: 10,
+        borderRadius: 5,
+        alignItems: "center",
+    },
+    buttonText: {
+        color: "#fff",
+        fontSize: 16,
+        fontWeight: "bold",
+    },
+    successMessage: {
+        color: "green",
+        textAlign: "center",
+        marginBottom: 10,
+    },
+});
+
+export default LogEntryForm;
