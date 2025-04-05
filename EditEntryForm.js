@@ -65,3 +65,52 @@ const EditEntryForm = ({ entry, onUpdate, onCancel }) => {
     );
 };
 
+const styles = StyleSheet.create({
+    container: {
+        padding: 20,
+        backgroundColor: "#fff",
+    },
+    heading: {
+        fontSize: 20,
+        fontWeight: "bold",
+        marginBottom: 15,
+    },
+    label: {
+        fontSize: 16,
+        marginBottom: 5,
+    },
+    input: {
+        borderWidth: 1,
+        borderColor: "#ccc",
+        borderRadius: 5,
+        padding: 10,
+        fontSize: 16,
+        marginBottom: 15,
+    },
+    buttonRow: {
+        flexDirection: "row",
+        justifyContent: "space-between",
+    },
+    saveButton: {
+        backgroundColor: "#0288d1",
+        padding: 10,
+        borderRadius: 5,
+        flex: 1,
+        marginRight: 10,
+        alignItems: "center",
+    },
+    cancelButton: {
+        backgroundColor: "#ccc",
+        padding: 10,
+        borderRadius: 5,
+        flex: 1,
+        marginLeft: 10,
+        alignItems: "center",
+    },
+    buttonText: {
+        color: "#fff",
+        fontWeight: "bold",
+    },
+});
+
+export default EditEntryForm;
