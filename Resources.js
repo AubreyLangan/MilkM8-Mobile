@@ -58,3 +58,42 @@ const Resources = () => {
         </ScrollView>
     );
 };
+
+const styles = StyleSheet.create({
+    container: {
+        padding: 20,
+        backgroundColor: "#fff",
+        flex: 1,
+    },
+    darkContainer: {
+        backgroundColor: "#121212",
+    },
+    title: {
+        fontSize: 22,
+        fontWeight: "bold",
+        marginBottom: 10,
+        color: "#000",
+    },
+    subtitle: {
+        fontSize: 16,
+        marginBottom: 20,
+        color: "#333",
+    },
+    resourceItem: {
+        marginBottom: 20,
+    },
+    linkText: {
+        fontSize: 18,
+        color: "#0288d1",
+        fontWeight: "bold",
+    },
+    description: {
+        fontSize: 14,
+        color: "#555",
+    },
+    darkText: {
+        color: "#e0e0e0",
+    },
+});
+
+export default Resources;
