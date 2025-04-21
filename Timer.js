@@ -38,6 +38,32 @@ const Timer = ({ onSubmit }) => {
     };
 
     return (
-        
-    )
-}
+        <View style={styles.container}>
+            <Text style={styles.title}>Timer</Text>
+            <Text style={styles.timer}>{formatTime(time)}</Text>
+
+            <View style={styles.buttonRow}>
+                <TouchableOpacity style={styles.button} onPress={toggleTimer}>
+                    <Text style={styles.buttonText}>{isRunning ? "Pause" : "Start"}</Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity
+                    style={[styles.button, time === 0 && styles.disabledButton]}
+                    onPress={resetTimer}
+                    disabled={timer === 0}
+                >
+                    <Text style={styles.buttonText}>Reset</Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity
+                    style={[styles.button, time === 0 && styles.disabledButton]}
+                    onPress={saveSession}
+                    disabled={time === 0}
+                >
+                    <Text style={styles.buttonText}>Save Session</Text>
+                </TouchableOpacity>
+            </View>
+        </View>
+    );
+};
+
