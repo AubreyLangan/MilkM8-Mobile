@@ -16,6 +16,43 @@ const LogEntries = ({ entries, updateEntry }) => {
     };
 
     return (
-        
-    )
-}
+        <View style={styles.container}>
+            <Text style={styles.heading}>Log Entries</Text>
+
+            <FlatList
+                data={entries}
+                keyExtractor={(item) => item.id.toString()}
+                renderItem={({ item }) => (
+                    <PumpEntry entry={item} onEdit={handleEdit} />
+                )}
+                contentContainerStyle={styles.list}
+            />
+
+            {editingEntry && (
+                <EditEntryForm
+                    entry={editingEntry}
+                    onUpdate={handleUpdate}
+                    onCancel={() => setEditingEntry(null)}
+                />
+            )}
+        </View>
+    );
+};
+
+const styles = StyleSheet.create({
+    container: {
+        padding: 16,
+        backgroundColor: "#fff",
+        flex: 1,
+    },
+    heading: {
+        fontSize: 24,
+        fontWeight: "bold",
+        marginBottom: 16,
+    },
+    list: {
+        paddingBottom: 20,
+    },
+});
+
+export default LogEntries;
