@@ -68,3 +68,36 @@ const ClockTimer = ({ onSubmit }) => {
     );
 };
 
+const styles = StyleSheet.create({
+    container: {
+        alignItems: "center",
+        justifyContent: "center",
+        padding: 20,
+    },
+    title: {
+        fontSize: 32,
+        fontWeight: "600",
+        marginBottom: 30,
+    },
+    buttonContainer: {
+        flexDirection: "row",
+        justifyContent: "space-around",
+        width: "100%",
+    },
+    button: {
+        backgroundColor: "#0288d1",
+        paddingVertical: 10,
+        paddingHorizontal: 16,
+        borderRadius: 8,
+        marginHorizontal: 5,
+    },
+    disabledButton: {
+        backgroundColor: "#ccc",
+    },
+    buttonText: {
+        color: "#fff",
+        fontWeight: "bold",
+    },
+});
+
+export default ClockTimer;
