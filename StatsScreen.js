@@ -27,6 +27,26 @@ const StatsScreen = ({ entries = [] }) => {
 const styles = StyleSheet.create({
     container: {
         padding: 16,
-        
-    }
-})
+        flex: 1,
+    },
+    title: {
+        fontSize: 24,
+        fontWeight: "bold",
+        marginBottom: 12,
+    },
+    totalText: {
+        fontSize: 16,
+        marginBottom: 20,
+    },
+    dark: {
+        backgroundColor: "#121212",
+    },
+    light: {
+        backgroundColor: "#fff",
+    },
+    darkText: {
+        color: "#fff",
+    },
+});
+
+export default StatsScreen;
