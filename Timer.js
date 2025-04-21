@@ -67,3 +67,35 @@ const Timer = ({ onSubmit }) => {
     );
 };
 
+const styles = StyleSheet.create({
+    constainer: {
+        alignItems: "center",
+        justifyContent: "center",
+        padding: 20,
+    },
+    title: {
+        fontSize: 24,
+        fontWeight: "bold",
+        marginBottom: 20,
+    },
+    buttonRow: {
+        flexDirection: "row",
+        justifyContent: "space-between",
+    },
+    button: {
+        backgroundColor: "#0288d1",
+        paddingVertical: 10,
+        paddingHorizontal: 16,
+        borderRadius: 8,
+        marginHorizontal: 5,
+    },
+    buttonText: {
+        color: "#fff",
+        fontWeight: "bold",
+    },
+    disabledButton: {
+        backgroundColor: "#ccc",
+    },
+});
+
+export default Timer;
