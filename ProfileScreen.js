@@ -40,5 +40,59 @@ const UserProfileScreen = ({
         }
     };
 
-    
-}
+    return (
+        <View style={[styles.container, isDarkMode && styles.darkContainer]}>
+            <Text style={[styles.title, isDarkMode && styles.darkText]}>User Profile</Text>
+
+            <Text style={styles.label}>Name</Text>
+            <TextInput
+                style={[styles.input, isDarkMode && styles.darkInput]}
+                value={name}
+                onChangeText={setName}
+                placeholder="Your name"
+                placeholderTextColor={isDarkMode ? "#aaa" : "#666"}
+            />
+
+            <Text style={styles.label}>Baby's Name</Text>
+            <TextInput
+                style={[styles.input, isDarkMode && styles.darkInput]}
+                value={babyName}
+                onChangeText={setBabyName}
+                placeholder="Your baby's name"
+                placeholderTextColor={isDarkMode ? "#aaa" : "#6666"}
+            />
+
+            <Text style={styles.label}>Measurement Unit</Text>
+            <View style={styles.pickerWrapper}>
+                <Picker
+                    selectedValue={unit}
+                    onValueChange={(value) => setUnit(value)}
+                    style={[styles.picker, isDarkMode && styles.darkText]}
+                    dropdownIconColor={isDarkMode ? "#fff" : "#000"}
+                >
+                    <Picker.Item label="Ounces" value="oz" />
+                    <Picker.Item label="Milliliters" value="ml" />
+                </Picker>
+            </View>
+
+            <Text style={styles.label}>Daily Pumping Goal ({unit})</Text>
+            <TextInput
+                style={[styles.input, isDarkMode && styles.darkInput]}
+                value={goal}
+                onChangeText={setGoal}
+                keyboardType="numeric"
+                placeholder="Set your goal"
+                placeholderTextColor={isDarkMode ? "#aaa" : "#666"}
+            />
+
+            <TouchableOpacity style={styles.button} onPress={handleSave}>
+                <Text style={styles.buttonText}>Save Profile</Text>
+            </TouchableOpacity>
+
+            {feedback ? (
+                <Text style={[styles.feedback, isDarkMode && styles.darkText]}>{feedback}</Text>
+            ) : null}
+        </View>
+    );
+};
+
