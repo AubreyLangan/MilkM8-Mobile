@@ -38,6 +38,35 @@ const ProgressSharing = () => {
     }, [user, checkExistingShareLink]);
 
     return (
-        
-    )
-}
+        <View style={styles.container}>
+            {shareLink ? (
+                <Text style={styles.text}>
+                    Share this link:{" "}
+                    <Text 
+                        styl={styles.link}
+                        onPress={() => Linking.openURL(shareLink)}
+                    >
+                        {shareLink}
+                    </Text>
+                </Text>
+            ) : (
+                <Text style={styles.text}>No shared progress found.</Text>
+            )}
+        </View>
+    );
+};
+
+const styles = StyleSheet.create({
+    container: {
+        padding: 16,
+    },
+    text: {
+        fontSize: 16,
+    },
+    link: {
+        color: "#0288d1",
+        textDecorationLine: "underline",
+    },
+});
+
+export default ProgressSharing;
