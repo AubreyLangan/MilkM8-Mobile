@@ -23,3 +23,27 @@ const AverageProductionCalculator = ({ entries = [] }) => {
     );
 };
 
+const styles = StyleSheet.create({
+    container: {
+        padding: 16,
+        backgroundColor: "#fff",
+    },
+    title: {
+        fontSize: 20,
+        fontWeight: "bold",
+        marginBottom: 8,
+    },
+    result: {
+        fontSize: 16,
+    },
+    bold: {
+        fontWeight: "bold",
+        color: "#0288d1",
+    },
+    info: {
+        fontSize: 16,
+        color: "#888",
+    },
+});
+
+export default AverageProductionCalculator;
