@@ -63,3 +63,44 @@ const DepletionCalculator = () => {
         </ScrollView>
     );
 };
+
+const styles = StyleSheet.create({
+    container: {
+        padding: 20,
+        paddingBottom: 40,
+    },
+    title: {
+        fontSize: 24,
+        fontWeight: "600",
+        marginBottom: 20,
+        textAlign: "center",
+    },
+    label: {
+        fontSize: 16,
+        marginTop: 10,
+    },
+    input: {
+        borderWidth: 1,
+        borderColor: "#ccc",
+        borderRadius: 8,
+        padding: 10,
+        marginTop: 5,
+    },
+    buttonContainer: {
+        marginTop: 20,
+    },
+    result: {
+        marginTop: 30,
+        backgroundColor: "#f0f8ff",
+        padding: 15,
+        borderRadius: 8,
+    },
+    resultText: {
+        fontSize: 16,
+    },
+    bold: {
+        fontWeight: "bold",
+    },
+});
+
+export default DepletionCalculator;
