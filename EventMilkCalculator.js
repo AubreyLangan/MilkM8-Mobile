@@ -31,6 +31,48 @@ const EventMilkCalculator = () => {
     };
 
     return (
-        
-    )
-}
+        <ScrollView contentContainerStyle={styles.container}>
+            <Text style={styles.title}>Event Milk Calculator</Text>
+
+            <Text style={styles.label}>Event Duration (hours):</Text>
+            <TextInput
+                style={styles.input}
+                keyboardType="numeric"
+                value={eventDuration}
+                onChangeText={setEventDuration}
+                placeholder="e.g., 4"
+            />
+
+            <Text style={styles.label}>Feeding Frequency (hours):</Text>
+            <TextInput
+                style={styles.input}
+                keyboardType="numeric"
+                value={feedingFrequency}
+                onChangeText={setFeedingFrequency}
+                placeholder="e.g., 3"
+            />
+
+            <Text style={styles.label}>Milk per Feed (oz or ml):</Text>
+            <TextInput
+                style={styles.input}
+                keyboardType="numeric"
+                value={milkPerFeed}
+                onChangeText={setMilkPerFeed}
+                placeholder="e.g. 4.5"
+            />
+
+            <View style={styles.buttonContainer}>
+                <Button title="Calculate" onPress={CalculateMilkForEvent} />
+            </View>
+
+            {result !== null && (
+                <View style={styles.resultBox}>
+                    <Text style={styles.resultText}>
+                        You will need approimately <Text style={styles.bold}>{result}</Text>
+                    </Text>
+                </View>
+            )}
+        </ScrollView>  
+    );
+};
+
