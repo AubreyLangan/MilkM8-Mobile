@@ -79,5 +79,38 @@ const FeedTracker = () => {
         setSelectedEntry(null);
     };
 
-    
+    return (
+        <View style={[styles.container, isDarkMode && styles.darkContainer]}>
+            <Text style={styles.heading}>Feed Tracker</Text>
+
+            <View style={styles.form}>
+                <TouchableOpacity
+                    style={styles.input}
+                    onPress={() => setOpenDatePicker(true)}
+                >
+                    <Text>Select Date: {date.toISOString().split("T")[0]}</Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity
+                    style={styles.input}
+                    onPress={() => setOpenDatePicker(true)}
+                >
+                    <Text>Select Time: {date.toTimeString().split(" ")[0].slice(0,5)}</Text>
+                </TouchableOpacity>
+
+                <TextInput
+                    style={styles.input}
+                    placeholder="Amount(Oz)"
+                    value={amount}
+                    onChangeText={setAmount}
+                    keyboardType="numeric"
+                />
+
+                <RNPickerSelect
+                    onValueChange={(value) => setFeedType(value)}
+                    value={feedType}
+                />
+            </View>
+        </View>
+    )
 }
