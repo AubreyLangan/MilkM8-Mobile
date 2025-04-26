@@ -43,4 +43,41 @@ const FeedTracker = () => {
 
         resetForm();
     };
+
+    const resetForm = () => {
+        setDate(new Date());
+        setAmount("");
+        setFeedType("Breastfeeding");
+        setNotes("");
+        setEditingId(null);
+    };
+
+    const handleEdit = (entry) => {
+        setDate(new Date(`${entry.date}T${entry.time}`));
+        setAmount(entry.amount);
+        setFeedType(entry.feedType);
+        setNotes(entry.notes);
+        setEditingId(entry.id);
+    };
+
+    const handleDelete = (entry) => {
+        setSelectedEntry(entry);
+        setModalAction("delete");
+        setIsModalVisible(true);
+    };
+
+    const confirmAction = () => {
+        if (modalAction === "delete" && selectedEntry) {
+            deleteFeedData(selectedEntry.id);
+        }
+        setIsModalVisible(false);
+        setSelectedEntry(null);
+    };
+
+    const cancelAction = () => {
+        setIsModalVisible(false);
+        setSelectedEntry(null);
+    };
+
+    
 }
