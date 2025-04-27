@@ -109,8 +109,137 @@ const FeedTracker = () => {
                 <RNPickerSelect
                     onValueChange={(value) => setFeedType(value)}
                     value={feedType}
+                    items={[
+                        { label: "Breastfeeding", value: "Breastfeeding" },
+                        { label: "Formula", value: "Formula" },
+                        { label: "Pumping", value: "Pumping" },
+                    ]}
+                    style={{
+                        inputIOS: styles.input,
+                        inputAndroid: styles.input,
+                    }}
+                    placeholder={{}}
                 />
+
+                <TextInput
+                    style={[StyleSheet.INPUT, { HEIGHT: 80 }]}
+                    placeholder="Notes (optional)"
+                    value={notes}
+                    onChangeText={setNotes}
+                    multiline
+                />
+
+                <TouchableOpacity style={styles.submitButton} onPress={handleSubmit}>
+                    <Text style={styles.buttonText}>{editingId ? "Save Changes" : "Add Feed"}</Text>
+                </TouchableOpacity>
             </View>
-        </View>
-    )
-}
+
+            <Text style={styles.subheading}>Feeding Log</Text>
+            <FlatList
+                data={feedData}
+                keyExtractor={(item) => item.id.toString()}
+                renderItem={({ item }) => (
+                    <View style={styles.feedItem}>
+                        <Text style={styles.feedText}>
+                            {item.date} {item.time} - {item.amount} Oz ({item.feedType})
+                        </Text>
+                        <Text style={styles.feedNotes}>{item.notes || "no notes"}</Text>
+                        <View style={styles.buttonRow}>
+                            <TouchableOpacity onPress={() => handleEdit(item)} style={styles.editButton}>
+                                <Text style={styles.buttonText}>Edit</Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={() => handleDelete(item)} style={styles.deleteButton}>
+                                <Text style={styles.buttonText}>Delete</Text>
+                            </TouchableOpacity>
+                        </View>
+                    </View>
+                )}
+            />
+        
+        <Modal
+            visible={isModalVisible}
+            transparent
+            animationType="slide"
+        >
+            <View style={styles.modalOverlay}>
+                <View style={styles.modalContent}>
+                    <Text>Are you sure you want to {modalAction} this entry?</Text>
+                    <View style={styles.buttonRow}>
+                        <TouchableOpacity onPress={confirmAction} style={styles.confirmButton}>
+                            <Text style={styles.buttonText}>Yes</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={cancelAction} style={styles.cancelButton}>
+                            <Text style={styles.buttonText}>Cancel</Text>
+                        </TouchableOpacity>
+                    </View>
+                </View>
+            </View>
+        </Modal>
+
+        <DatePicker
+            modal
+            open={openDatePicker}
+            date={date}
+            mode="date"
+            onConfirm={(d) => {
+                setOpenDatePicker(false);
+                setDate(d);
+            }}
+            onCancel={() => setOpenDatePicker(false)}
+        />
+
+        <DatePicker
+            modal
+            open={openTimePicker}
+            date={date}
+            mode="time"
+            onConfirm={(d) => {
+                setOpenTimePicker(false);
+                setDate(d);
+            }}
+            onCancel={() => setOpenTimePicker(false)}
+        />
+    </View>
+    );
+};
+
+const styles = StyleSheet.create({
+    container: { flex: 1, padding: 20 },
+    darkContainer: { backgroundColor: "#121212" },
+    heading: { fontSize: 24, fontWeight: "bold", marginBottom: 10 },
+    subheading: { fontSize: 20, marginVertical: 15 },
+    form: { marginBottom: 20 },
+    input: {
+        borderColor: "#ccc",
+        borderWidth: 1,
+        borderRadius: 5,
+        padding: 12,
+        marginVertical: 5,
+        backgroundColor: "#fff",
+    },
+    submitButton: {
+        backgroundColor: "#2196F3",
+        padding: 12,
+        borderRadius: 5,
+        marginTop: 10,
+        alignItems: "center",
+    },
+    feedItem: {
+        backgroundColor: "#f9f9f9",
+        padding: 15,
+        borderRadius: 8,
+        marginVertical: 5,
+    },
+    feedText: { fontSize: 16, fontWeight: "bold" },
+    feedNotes: { fontStyle: "italic", marginTop: 5 },
+    buttonRow: { flexDirection: "row", justifyContent: "space-between", marginTop: 10 },
+    editButton: { backgroundColor: "#4caf50", padding: 8, borderRadius: 5 },
+    deleteButton: { backgroundColor: "#f44336", padding: 8, borderRadius: 5 },
+    confirmButton: { backgroundColor: "#4caf50", padding: 10, borderRadius: 5, margin: 5 },
+    cancelButton: { backgroundColor: "#f44336", padding: 10, borderRadius: 5, margin: 5 },
+    buttonText: { color: "#fff", fontWeight: "bold" },
+    modalOverlay: { flex: 1, backgroundColor: "rgba(0,0,0,0.5)", justifyContent: "center", alignItems: "center" },
+    modalContent: { backgroundColor: "#fff", padding: 20, borderRadius: 10, width: "80%", alignItems: "center" },
+});
+
+export default FeedTracker;
