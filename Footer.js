@@ -33,5 +33,33 @@ const Footer = () => {
 };
 
 const styles = StyleSheet.create({
-    
-})
+    footer: {
+        paddingVertical: 20,
+        paddingHorizontal: 10,
+        backgroundColor: "#f8f8f8",
+        borderTopWidth: 1,
+        borderTopColor: "#ddd",
+        alignItems:"center",
+    },
+    footerContent: {
+        alignItems: "center",
+    },
+    footerText: {
+        fontSize: 14,
+        color: "#666",
+        marginBottom: 10,
+        textAlign: "center",
+    },
+    footerNav: {
+        flexDirection: "row",
+        justifyContent: "center",
+    },
+    link: {
+        color: "#007BFF",
+        fontSize: 14,
+        textDecorationLine: "underline",
+        marginHorizontal: 8,
+    },
+});
+
+export default Footer;
