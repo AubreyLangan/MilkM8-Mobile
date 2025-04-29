@@ -30,18 +30,43 @@ const HelpCenter = () => {
             { q: "Why am I getting notifications at the wrong time?", a: "Check your device's timezone and notification settings to ensure they're configured correctly." },
         ] },
         { category: "Account Management", questions: [
-
+            { q: "How do I delete my account?", a: "Go to Settings > Account Management and select 'Delete Account.' Note that this action is irreversible." },
+            { q: "Can I share my account with my partner?", a: "Yes, you can invite other caregivers to view and manage logs by sharing access through the app." },   
         ] },
         { category: "Data and Privacy", questions: [
-
+            { q: "Is my data secure?", a: "We use end-to-end encryption and follow industry standards to protect your data." },
+            { q: "How is my data used?", a: "Your data is only used to improve your experience within the app and is never shared without your consent." },
+            { q: "Can I back up my data?", a: "Yes, your data is automatically backed up to the cloud when you're online." },
         ] },
         { category: "Customization", questions: [
-
+            { q: "Can I change the theme of the app?", a: "Yes, you can toggle between light and dark mode in the settings." },
+            { q: "How do I personalize my baby's profile?", a: "Go to the baby's profile settings and add a photo, birthdate and other details." },
         ] },
         { category: "Miscellaneous", questions: [
             { q: "Can I set reminders?", a: "Yes, you can set custom reminders for feeding, pumping or other activities in the Reminders section." },
             { q: "What if I encounter a bug?", a: "Please contact our support team using the 'Report a Bug' option in Settings." },
             { q: "How do I suggest a feature?", a: "We'd love to hear from you! Use the 'Feedback' option in the app or email us directly." },
-        ] }
-    ]
+        ] },
+    ];
+
+    const filteredFaqs = faqs
+        .map(category => ({
+            ...category,
+            questions: category.questions.filter(
+                item =>
+                    item.q.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                    item.a.toLowerCase().includes(searchTerm.toLowerCase())
+            )
+        }))
+        .filter(category => category.questions.length > 0);
+
+    useEffect(() => {
+        if (activeCategory !== null && activeCategory >= filteredFaqs.length) {
+            setActiveCategory(null);
+        }
+    }, [filteredFaqs, activeCategory]);
+
+    return (
+        
+    )
 }
