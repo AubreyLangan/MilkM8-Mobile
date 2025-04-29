@@ -22,3 +22,20 @@ const LogoutButton = () => {
     );
 };
 
+const styles = StyleSheet.create({
+    button: {
+        backgroundColor: "#d9534f",
+        paddingVertical: 12,
+        paddingHorizontal: 24,
+        borderRadius: 8,
+        alignItems: "center",
+        marginVertical: 10,
+    },
+    buttonText: {
+        color: "#fff",
+        fontWeight: "bold",
+        fontSize: 16,
+    },
+});
+
+export default LogoutButton;
