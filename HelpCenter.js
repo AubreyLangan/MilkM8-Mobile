@@ -121,5 +121,78 @@ const HelpCenter = () => {
 };
 
 const styles = StyleSheet.create({
-    
-})
+    container: {
+        flex: 1,
+        padding: 20,
+        backgroundColor: "#f7f7f7",
+    },
+    darkBackground: {
+        backgroundColor: "#1c1c1e",
+    },
+    title: {
+        fontSize: 28,
+        fontWeight: "bold",
+        marginBottom: 10,
+        textAlign: "center",
+    },
+    searchInput: {
+        backgroundColor: "#fff",
+        borderColor: "#ccc",
+        borderWidth: 1,
+        borderRadius: 8,
+        padding: 10,
+        marginBottom: 20,
+    },
+    darkInput: {
+        backgroundColor: "#333",
+        borderColor: "#555",
+    },
+    noResults: {
+        fontSize: 16,
+        textAlign: "center",
+        marginTop: 20,
+    },
+    categories: {
+        flexDirection: "row",
+        flexWrap: "wrap",
+        marginBottom: 10,
+        justifyContent: "center",
+    },
+    category: {
+        backgroundColor: "#e0e0e0",
+        paddingVertical: 8,
+        paddingHorizontal: 16,
+        borderRadius: 20,
+        margin: 5,
+    },
+    activeCategory: {
+        backgroundColor: "#007BFF",
+    },
+    categoryText: {
+        fontSize: 16,
+        color: "#333",
+    },
+    faqContent: {
+        marginTop: 20,
+    },
+    categoryTitle: {
+        fontSize: 22,
+        fontWeight: "bold",
+        marginBottom: 10,
+        textAlign: "center",
+    },
+    questionItem: {
+        marginBottom: 15,
+    },
+    question: {
+        fontSize: 16,
+        fontWeight: "bold",
+        marginBottom: 5,
+    },
+    answer: {
+        fontSize: 16,
+        color: "#666",
+    },
+});
+
+export default HelpCenter;
