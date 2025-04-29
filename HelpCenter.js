@@ -67,6 +67,59 @@ const HelpCenter = () => {
     }, [filteredFaqs, activeCategory]);
 
     return (
-        
-    )
-}
+        <View style={[styles.container, isDarkMode && styles.darkBackground]}>
+            <Text style={[styles.title, isDarkMode && styles.darkText]}>Help Center</Text>
+
+            <TextInput
+                style={[styles.searchInput, isDarkMode && styles.darkInput]}
+                placeholder="Search FAQs..."
+                placeholderTextColor={isDarkMode ? "#aaa" : "#555"}
+                value={searchTerm}
+                onChangeText={setSearchTerm}
+            />
+
+            <ScrollView>
+                {filteredFaqs.length === 0 ? (
+                    <Text style={styles.noResults}>No results found. Try another search term.</Text>
+                ) : (
+                    <>
+                        <View style={styles.categories}>
+                            {filteredFaqs.map((faq, index) => (
+                                <TouchableOpacity
+                                    key={index}
+                                    style={[
+                                        styles.category,
+                                        activeCategory === index && styles.activeCategory,
+                                    ]}
+                                    onPress={() => setActiveCategory(activeCategory === index ? null : index)}
+                                >
+                                    <Text style={[styles.categoryText, isDarkMode && styles.darkText]}>
+                                        {faq.category}
+                                    </Text>
+                                </TouchableOpacity>
+                            ))}
+                        </View>
+
+                        {activeCategory !== null && (
+                            <View style={styles.faqContent}>
+                                <Text style={[styles.categoryTitle, isDarkMode && styles.darkText]}>
+                                    {filteredFaqs[activeCategory.category]}
+                                </Text>
+                                {filteredFaqs[activeCategory].questions.map((item, idx) => (
+                                    <View key={idx} style={styles.questionItem}>
+                                        <Text style={[styles.question, isDarkMode && styles.darkText]}>{item.q}</Text>
+                                        <Text style={[styles.answer, isDarkMode && styles.darkText]}>{item.a}</Text>
+                                    </View>
+                                ))}
+                            </View>
+                        )}
+                    </>
+                )}
+            </ScrollView>
+        </View>
+    );
+};
+
+const styles = StyleSheet.create({
+    
+})
