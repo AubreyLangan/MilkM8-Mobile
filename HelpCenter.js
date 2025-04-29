@@ -16,10 +16,18 @@ const HelpCenter = () => {
             { q: "What platforms does the app support?", a: "The app is available on iOS, Android, and web browsers." },
         ] },
         { category: "Tracking Features", questions: [
-
+            { q: "How do I log feeding sessions?", a: "Go to the 'Feeding Tracker' page and fill in the form with the details of your feeding session." },
+            { q: "Can I track pumping sessions?", a: "Yes! Use the Pumping Tracker in the Log Entry section." },
+            { q: "How do I edit a previous e ntry?", a: "Navigate to the entry in your log and click the 'Edit' button to update the details." },
+            { q: "Can I track more than one baby?", a: "Yes! You can add multiple profiles for each baby in your family." },
+            { q: "Can I export my data?", a: "Yes, go to Settings and use the 'Export Data' feature to download your logs." },
         ] },
         { category: "Technical Help", questions: [
-
+            { q: "How do I enable dark mode?", a: "Go to settings and toggle the Dark Mode button." },
+            { q: "Why is my data not syncing?", a: "Ensure you are logged in and have an active internet connection." },
+            { q: "What do I do if I forgot my password?", a: "Use the 'Forgot Password' link on the login page to reset your password." },
+            { q: "How do I update the app?", a: "Visit your app store and check for updates." },
+            { q: "Why am I getting notifications at the wrong time?", a: "Check your device's timezone and notification settings to ensure they're configured correctly." },
         ] },
         { category: "Account Management", questions: [
 
