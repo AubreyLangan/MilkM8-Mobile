@@ -32,5 +32,51 @@ const ReminderForm = () => {
         Alert.alert("Reminder set!");
     };
 
-    
-}
+    return (
+        <View style={{ padding: 16 }}>
+            <Text>Title:</Text>
+            <TextInput
+                value={title}
+                onChangeText={setTitle}
+                placeholder="Enter title"
+                style={{
+                    borderWidth: 1,
+                    borderColor: "#ccc",
+                    padding: 8,
+                    marginBottom: 12,
+                    borderRadius: 6,
+                }}
+            />
+
+            <Button title="Pick Date" onPress={() => {
+                setMode("date");
+                setShowDatePicker(true);
+            }} />
+            <Text style={{ marginVertical: 8 }}>
+                Date: {date.toLocaleDateString()}
+            </Text>
+
+            <Button title="Pick Time" onPress={() => {
+                setMode("time");
+                setShowDatePicker(true);
+            }} />
+            <Text style={{ marginVertical: 8 }}>
+                Time: {date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
+            </Text>
+
+            {showDatePicker && (
+                <DateTimePicker
+                    value={date}
+                    mode={mode}
+                    is24Hour={true}
+                    display="default"
+                    onChange={handleDateChange}
+                />
+            )}
+
+            <Button title="Add Reminder" onPress={handleSubmit} disabled={!title} />
+        </View>
+    );
+};
+
+export default ReminderForm;
