@@ -35,5 +35,41 @@ const ReminderList = () => {
 };
 
 const styles = StyleSheet.create({
-    
-})
+    container: {
+        padding: 16,
+    },
+    header: {
+        fontSize: 20,
+        fontWeight: "bold",
+        marginBottom: 12,
+    },
+    noReminders: {
+        fontStyle: "italic",
+    },
+    reminderItem: {
+        marginBottom: 12,
+        padding: 12,
+        backgroundColor: "#f2f2f2",
+        borderRadius: 8,
+    },
+    text: {
+        fontSize: 16,
+    },
+    title: {
+        fontWeight: "bold",
+    },
+    removeButton: {
+        marginTop: 8,
+        alignSelf: "flex-start",
+        backgroundColor: "#e74c3c",
+        paddingHorizontal: 10,
+        paddingVertical: 6,
+        borderRadius: 5,
+    },
+    removeText: {
+        color: "#fff",
+        fontWeight: "600",
+    },
+});
+
+export default ReminderList;
