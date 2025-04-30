@@ -24,5 +24,19 @@ const SearchBar = ({ searchTerm, setSearchTerm, placeholder = "Search...", onSea
 };
 
 const styles = StyleSheet.create({
-    
-})
+    container: {
+        flexDirection: "row",
+        alignItems: "center",
+        padding: 8,
+    },
+    input: {
+        flex: 1,
+        borderWidth: 1,
+        borderColor: "#ccc",
+        borderRadius: 4,
+        padding: 8,
+        marginRight: 8,
+    },
+});
+
+export default SearchBar;
