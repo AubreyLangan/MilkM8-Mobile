@@ -51,3 +51,35 @@ const CalculatorScreen = () => {
     );
 };
 
+const getStyles = (isDarkMode) =>
+    StyleSheet.create({
+        container: {
+            padding: 16,
+            backgroundColor: isDarkMode ? "#121212" : "#f9f9f9",
+        },
+        title: {
+            fontSize: 24,
+            fontWeight: "bold",
+            color: isDarkMode ? "#ffffff" : "#000000",
+            marginBottom: 16,
+        },
+        section: {
+            marginBottom: 24,
+            padding: 12,
+            backgroundColor: isDarkMode ? "#1f1f1f" : "#ffffff",
+            borderRadius: 10,
+            shadowColor: "#000",
+            shadowOffset: { width: 0, height: 2 },
+            shadowOpacity: 0.1,
+            shadowRadius: 4,
+            elevation: 2,
+        },
+        sectionTitle: {
+            fontSize: 18,
+            fontWeight: "600",
+            marginBottom: 8,
+            color: isDarkMode ? "#e0e0e0" : "#333333",
+        },
+    });
+
+    export default CalculatorScreen;
