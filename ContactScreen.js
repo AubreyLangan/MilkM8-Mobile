@@ -82,4 +82,52 @@ const ContactScreen = () => {
     );
 };
 
-const 
+const styles = StyleSheet.create({
+    container: {
+        padding: 20,
+        backgroundColor: "#fff",
+        flexGrow: 1,
+    },
+    title: {
+        fontSize: 24,
+        fontWeight: "bold",
+        marginBottom: 10,
+    },
+    description: {
+        marginBottom: 20,
+        fontSize: 16,
+    },
+    successMessage: {
+        fontSize: 16,
+        color: "green",
+        marginVertical: 20,
+    },
+    form: {
+        marginBottom: 20,
+    },
+    label: {
+        fontSize: 16,
+        marginBottom: 5,
+    },
+    input: {
+        borderWidth: 1,
+        borderColor: "#ccc",
+        padding: 10,
+        borderRadius: 5,
+        marginBottom: 15,
+    },
+    textarea: {
+        height: 100,
+        textAlignVertical: "top",
+    },
+    contactInfo: {
+        marginTop: 30,
+    },
+    subtitle: {
+        fontSize: 18,
+        fontWeight: "600",
+        marginBottom: 10,
+    },
+});
+
+export default ContactScreen;
