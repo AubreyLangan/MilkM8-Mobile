@@ -70,5 +70,49 @@ const PartnerManagementScreen = () => {
         }
     };
 
-    
-}
+    return (
+        <ScrollView contentContainerStyle={styles.container}>
+            <Text style={styles.title}>Partner Management</Text>
+
+            {partner ? (
+                <Text style={styles.infoText}>Connected Partner: {partner}</Text>
+            ) : (
+                <View style={styles.inputGroup}>
+                    <Text style={styles.label}>Invite Partner</Text>
+                    <TextInput
+                        style={styles.input}
+                        value={partnerEmail}
+                        onChangeText={setPartnerEmail}
+                        placeholder="Enter partner's email"
+                        keyboardType="email-address"
+                        autoCapitalize="none"
+                    />
+                    <Button title="Send Invite" onPress={invitePartner} />
+                </View>
+            )}
+
+            <Text style={styles.subTitle}>Shared Data</Text>
+            {sharedData ? (
+                <Text style={styles.json}>{JSON.stringify(sharedData, null, 2)}</Text>
+            ) : (
+                <Text>No shared data available.</Text>
+            )}
+
+            <Button title="Fetch Partner Data" onPress={fetchPartnerData} />
+
+            {partnerData && (
+                <View style={styles.section}>
+                    <Text style={styles.subTitle}>Partner's Info</Text>
+                    <Text style={styles.json}>{JSON.stringify(partnerData, null, 2)}</Text>
+                </View>
+            )}
+
+            <View style={styles.buttonGroup}>
+                <Button title="Backup Data" onPress={backupUserData} />
+                <Button title="Restore Backup" onPress={restoreBackup} />
+                <Button title="Export Backup" onPress={backupToFile} />
+            </View>
+        </ScrollView>
+    );
+};
+
