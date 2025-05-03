@@ -4,9 +4,10 @@ import { NavigationContainer } from "@react-navigation/native";
 
 
 import HomeScreen from "../screens/HomeScreen";
-import ProfileScreen from "../screens/ProfileScreen";
+import ProfileScreen from "../screens/UserProfileScreen.js";
 import ProgressTrendsScreen from "../screens/ProgressTrendsScreen";
 import AboutScreen from "../screens/AboutScreen";
+import UserProfileScreen from "../screens/UserProfileScreen.js";
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -15,7 +16,7 @@ const TabNavigator = () => {
     return (
         <Tab.Navigator screenOptions={{ headerShown: false }}>
             <Tab.Screen name="Home" component={HomeScreen} />
-            <Tab.Screen name="Profile" component={ProfileScreen} />
+            <Tab.Screen name="Profile" component={UserProfileScreen} />
             <Tab.Screen name="Progress" component={ProgressTrendsScreen} />
             <Tab.Screen name="Trackers" component={FeedTrackerScreen} />
             <Tab.Screen name="Settings" component={SettingsScreen} />
