@@ -32,4 +32,43 @@ const PartnerManagementScreen = () => {
 
         return () => unsubscribe();
     }, []);
+
+    const invitePartner = async () => {
+        const user = auth.currentUser;
+        if (!user) {
+            Alert.alert("Authenication required", "Please log in.");
+            return;
+        }
+
+        try {
+            const userRef = doc(db, "users", user.uid);
+            await setDoc(userRef, { partner: partnerEmail }, { merge: true });
+            Alert.alert("Success", "Partner invited successfully!");
+        } catch (error) {
+            console.error("Error inviting partner:", error);
+            Alert.alert("Error", "Failed to invite partner.");
+        }
+    };
+
+    const fetchPartnerData = async () => {
+        const user = auth.currentUser;
+        if (!user) return;
+
+        const userRef = doc(db, "users", user.uid);
+        const userSnap = await getDoc(userRef);
+        if (userSnap.exists()) {
+            const { partner: partnerEmail } = userSnap.data();
+            if (partnerEmail) {
+                const partnerDoc = doc(db, "users", partnerEmail);
+                const partnerSnap = await getDoc(partnerDoc);
+                if (partnerSnap.exists()) {
+                    setPartnerData(partnerSnapdata());
+                } else {
+                    Alert.alert("Info", "No partner account found for this email.")
+                }
+            }
+        }
+    };
+
+    
 }
