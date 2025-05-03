@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, TextInput, Button, ScrollView, StyleSheet, Alert } from "react-native";
+import { View, Text, TextInput, Button, ScrollView, StyleSheet, Alert, Platform } from "react-native";
 import { auth, db } from "../firebase/firebase";
 import { doc, setDoc, getDoc, onSnapshot } from "firebase/firestore";
 import { onAuthStateChanged } from "firebase/auth";
@@ -116,3 +116,54 @@ const PartnerManagementScreen = () => {
     );
 };
 
+const styles = StyleSheet.create({
+    container: {
+        padding: 20,
+        flexGrow: 1,
+        backgroundColor: "#fff",
+    },
+    title: {
+        fontSize: 24,
+        fontWeight: "bold",
+        marginBottom: 20,
+    },
+    subTitle: {
+        fontSize: 18,
+        fontWeight: "600",
+        marginTop: 20,
+        marginBottom: 10,
+    },
+    label: {
+        marginBottom: 5,
+        fontSize: 16,
+    },
+    input: {
+        borderWidth: 1,
+        borderColor: "#ccc",
+        padding: 10,
+        borderRadius: 5,
+        marginBottom: 10,
+    },
+    inputGroup: {
+       marginBottom: 20, 
+    },
+    section: {
+        marginVertical: 20,
+    },
+    infoText: {
+        fontSize: 16,
+        marginBottom: 10,
+    },
+    json: {
+        fontFamily: Platform.OS === "ios" ? "Courier New" : "monospace",
+        backgroundColor: "f4f4f4",
+        padding: 10,
+        borderRadius: 5,
+    },
+    buttonGroup: {
+        marginTop: 30,
+        gap: 10,
+    },
+});
+
+export default PartnerManagementScreen;
