@@ -44,3 +44,37 @@ const handleDeleteClick = (id) => {
     setReminderToDelete(id);
     setShowModal(true);
 };
+
+const handleConfirmDelete = () => {
+    deleteReminder(reminderToDelete);
+    setShowModal(false);
+    setReminderToDelete(null);
+};
+
+return (
+    <View style={styles.container}>
+        <Text style={styles.heading}>Reminders</Text>
+
+        <View style={styles.inputGroup}>
+            <TextInput
+                placeholder="Title"
+                value={newReminder.title}
+                onChangeText={(text) => setNewReminder({ ...newReminder, title: text })}
+                style={styles.input}
+            />
+            <TextInput
+                placeholder="Date (YYYY-MM-DD)"
+                value={newReminder.date}
+                onChangeText={(text) => setNewReminder({ ...newReminder, date: text })}
+                style={styles.input}
+            />
+            <TextInput
+                placeholder="Time (HH:MM)"
+                value={newReminder.time}
+                onChangeText={(text) => setNewReminder({ ...newReminder, time: text })}
+                style={styles.input}
+            />
+            <Button title="Add Reminder" onPress={handleAddReminder} />
+        </View>
+    </View>
+)
