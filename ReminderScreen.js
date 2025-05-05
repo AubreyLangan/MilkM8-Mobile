@@ -143,3 +143,53 @@ const ReminderScreen = () => {
         </View>
     );
 };
+
+const styles = StyleSheet.create({
+    container: {
+        padding: 20,
+        flex: 1,
+        backgroundColor: "#fff",
+    },
+    heading: {
+        fontSize: 24,
+        fontWeight: "bold",
+        marginBottom: 10,
+    },
+    inputGroup: {
+        marginBottom: 20,
+    },
+    input: {
+        borderColor: "#ccc",
+        borderWidth: 1,
+        padding: 10,
+        marginBottom: 10,
+        borderRadius: 5,
+    },
+    reminderItem: {
+        padding: 15,
+        borderBottomColor: "#eee",
+        borderBottomWidth: 1,
+    },
+    buttonRow: {
+        flexDirection: "row",
+        justifyContent: "space-between",
+        marginTop: 10,
+    },
+    editBtn: {
+        backgroundColor: "#d0f0fd",
+        padding: 5,
+        borderRadius: 5,
+    },
+    deleteBtn: {
+        backgroundColor: "#fde0e0",
+        padding: 5,
+        borderRadius: 5,
+    },
+    modalContainer: {
+        backgroundColor: "#fff",
+        padding: 20,
+        borderRadius: 10,
+    },
+});
+
+export default ReminderScreen;
