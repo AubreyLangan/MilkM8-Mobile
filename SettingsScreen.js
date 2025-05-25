@@ -68,6 +68,51 @@ const SettingsScreen = () => {
     };
 
     return (
-        
+        <ScrollView style={[styles.container, isDarkMode && styles.dark]}>
+            <Text style={styles.heading}>Settings</Text>
+
+            <Text style={styles.sectionTitle}>Profile Settings</Text>
+            <TextInput
+                style={styles.input}
+                placeholder="Enter your name"
+                value={name}
+                onChangeText={setName}
+            />
+            <TextInput
+                style={styles.input}
+                placeholder="Enter your email"
+                value={email}
+                onChangeText={setEmail}
+                autoCapitalize="none"
+                keyboardType="email-address"
+            />
+            <Button title="Save Profile" onPress={handleSaveProfile} />
+
+            <Text style={styles.sectionTitle}>Preferences</Text>
+            <View style={Styles.toggleRow}>
+                <Text>Dark Mode</Text>
+                <Switch value={isDarkMode} onValueChange={toggleTheme} />
+            </View>
+            <View style={styles.toggleRow}>
+                <Text>Notifications</Text>
+                <Switch
+                    value={notificationsEnabled}
+                    onValueChange={setNotificationsEnabaled}
+                />
+            </View>
+
+            <Text style={styles.sectionTitle}>Privacy</Text>
+            <Button title="Export Data" onPress={handleExportData} />
+
+            <Text style={styles.sectionTitle}>Account Management</Text>
+            <Button title="Log Out" onPress={handleLogout} />
+
+            <Button
+                title={showResetForm ? "Cancel Reset" : "Reset Password"}
+                onPress={() => setShowResetForm(!showResetForm)}
+            />
+
+            
+        </ScrollView>
     )
 }
