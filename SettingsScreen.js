@@ -112,7 +112,67 @@ const SettingsScreen = () => {
                 onPress={() => setShowResetForm(!showResetForm)}
             />
 
-            
+            {showResetForm && (
+                <View style={{ marginTop: 10 }}>
+                    <TextInput
+                        style={styles.input}
+                        placeholder="Enter your email"
+                        value={email}
+                        onChangeText={setEmail}
+                        autoCapitalize="none"
+                        keyboardType="email-address"
+                    />
+                    <Button title="Send Reset Link" onPress={handleResetPassword} />
+                </View>
+            )}
+
+            {message ? <Text style={styles.success}>{message}</Text> : null}
+            {error ? <Text style={styles.error}>{error}</Text> : null}
+
+            <Button
+                title="Delete Account"
+                color="red"
+                onPress={handleDeleteAccount}
+            />
         </ScrollView>
-    )
-}
+    );
+};
+
+const styles = StyleSheet.create({
+    container: {
+        padding: 20,
+        backgroundColor: "#fff",
+        flex: 1,
+    },
+    dark: {
+        backgroundColor: "#111",
+    },
+    heading: {
+        fontSize: 28,
+        fontWeight: "bold",
+        marginBottom: 10,
+    },
+    input: {
+        borderWidth: 1,
+        borderColor: "#ccc",
+        padding: 10,
+        marginBottom: 10,
+        borderRadius: 6,
+    },
+    toggleRow: {
+        flexDirection: "row",
+        justifyContent: "space-between",
+        alignItems: "center",
+        marginBottom: 10,
+    },
+    success: {
+        color: "green",
+        marginTop: 10,
+    },
+    error: {
+        color: "red",
+        marginTop: 10,
+    },
+});
+
+export default SettingsScreen;
